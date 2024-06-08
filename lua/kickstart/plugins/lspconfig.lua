@@ -166,8 +166,23 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        --
+        tsserver = {
+          init_options = {
+            preferences = {
+              importModuleSpecifierPreference = 'non-relative',
+            },
+          },
+        },
+
+        stylelint_lsp = {
+          filetypes = { 'css', 'scss', 'less' }, -- Add other filetypes if needed
+          settings = {
+            stylelintplus = {
+              autoFixOnSave = true,
+              configFile = '.stylelintrc', -- Adjust this to your Stylelint config file path
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},

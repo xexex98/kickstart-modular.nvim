@@ -15,7 +15,21 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        visible = true,
+        show_hidden_count = false,
+        hide_dotfiles = false,
+        hide_gitignored = true,
+        hide_by_name = {
+          '.git',
+          '.DS_Store',
+          'build',
+          'node_modules',
+        },
+        never_show = {},
+      },
       window = {
+        position = 'float',
         mappings = {
           ['\\'] = 'close_window',
         },
