@@ -9,4 +9,5 @@ return {
   require 'custom.plugins.lazygit',
   require 'custom.plugins.bufferline',
   require 'custom.plugins.dashboard',
+  require 'custom.plugins.supermaven',
 }
