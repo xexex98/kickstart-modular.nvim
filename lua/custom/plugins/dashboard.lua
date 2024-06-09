@@ -1,3 +1,4 @@
+-- A dashboard for Neovim, to get you started.
 return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',

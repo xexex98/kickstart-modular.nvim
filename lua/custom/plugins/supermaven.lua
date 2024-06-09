@@ -1,3 +1,4 @@
+-- Code write helper like Copilot.
 return {
   'supermaven-inc/supermaven-nvim',
   config = function()

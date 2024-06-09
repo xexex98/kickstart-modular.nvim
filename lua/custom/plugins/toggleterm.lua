@@ -1,3 +1,4 @@
+-- A terminal emulator for Neovim.
 return {
   'akinsho/toggleterm.nvim',
   version = '*',

@@ -1,3 +1,4 @@
+-- A statusline for Neovim.
 return {
   'nvim-lualine/lualine.nvim',
   event = 'VeryLazy',

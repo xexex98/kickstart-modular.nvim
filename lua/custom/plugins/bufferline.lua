@@ -1,3 +1,4 @@
+-- A bufferline for Neovim, to help you navigate between buffers.
 return {
   'akinsho/bufferline.nvim',
   lazy = false,
