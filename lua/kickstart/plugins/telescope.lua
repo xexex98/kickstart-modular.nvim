@@ -78,7 +78,8 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-
+      pcall(require('telescope').load_extension, 'file_browser')
+      pcall(require('telescope').load_extension, 'projects')
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
@@ -96,6 +97,9 @@ return {
       vim.keymap.set('n', '<leader>sb', function()
         require('telescope').extensions.file_browser.file_browser()
       end, { desc = '[S]earch File [B]rowser' })
+      vim.keymap.set('n', '<leader>sp', function()
+        require('telescope').extensions.projects.projects()
+      end, { desc = '[S]earch [P]rojects' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()

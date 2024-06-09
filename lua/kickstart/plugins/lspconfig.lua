@@ -179,6 +179,7 @@ return {
           settings = {
             stylelintplus = {
               autoFixOnSave = true,
+              autoFixOnFormat = true,
               configFile = '.stylelintrc', -- Adjust this to your Stylelint config file path
             },
           },
