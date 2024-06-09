@@ -11,6 +11,16 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Move current line down
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up', noremap = true, silent = true })
+-- Move current line up
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down', noremap = true, silent = true })
+
+-- Move selected lines down
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', noremap = true, silent = true })
+-- Move selected lines up
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', noremap = true, silent = true })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -47,23 +57,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
- 
+
 local opts = { expr = true }
 
 vim.keymap.set('n', 'j', function()
-  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and "gj" or "j"
+  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gj' or 'j'
 end, opts)
 
 vim.keymap.set('n', 'k', function()
-  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and "gk" or "k"
+  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gk' or 'k'
 end, opts)
 
 vim.keymap.set('n', '<Up>', function()
-  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and "gk" or "k"
+  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gk' or 'k'
 end, opts)
 
 vim.keymap.set('n', '<Down>', function()
-  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and "gj" or "j"
+  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gj' or 'j'
 end, opts)
 
 -- vim: ts=2 sts=2 sw=2 et
