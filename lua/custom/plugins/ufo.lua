@@ -1,29 +1,19 @@
--- WARN: Understand what is going on here
 return {
   'kevinhwang91/nvim-ufo',
-  dependencies = 'kevinhwang91/promise-async',
-  event = 'VeryLazy',
-  opts = {
-    -- INFO: Uncomment to use treeitter as fold provider, otherwise nvim lsp is used
-    -- provider_selector = function(bufnr, filetype, buftype)
-    --   return { 'treesitter', 'indent' }
-    -- end,
-    open_fold_hl_timeout = 400,
-    close_fold_kinds = { 'imports', 'comment' },
-  },
+  dependencies = { 'kevinhwang91/promise-async' },
   init = function()
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
     vim.o.foldcolumn = '1' -- '0' is not bad
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
+    vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '[UFO]: Open all folds' })
+    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = '[UFO]: Close all folds' })
   end,
-  config = function(_, opts)
+  config = function()
     local handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
-      local totalLines = vim.api.nvim_buf_line_count(0)
-      local foldedLines = endLnum - lnum
-      local suffix = (' <-%d %d%%'):format(foldedLines, foldedLines / totalLines * 100)
+      local suffix = (' 󰁂 %d '):format(endLnum - lnum)
       local sufWidth = vim.fn.strdisplaywidth(suffix)
       local targetWidth = width - sufWidth
       local curWidth = 0
@@ -45,14 +35,23 @@ return {
         end
         curWidth = curWidth + chunkWidth
       end
-      local rAlignAppndx = math.max(math.min(vim.opt.textwidth['_value'], width - 1) - curWidth - sufWidth, 0)
-      suffix = (' '):rep(rAlignAppndx) .. suffix
       table.insert(newVirtText, { suffix, 'MoreMsg' })
       return newVirtText
     end
-    opts['fold_virt_text_handler'] = handler
-    require('ufo').setup(opts)
-    vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '[UFO]: Open all folds' })
-    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = '[UFO]: Close all folds' })
+    require('ufo').setup {
+      fold_virt_text_handler = handler,
+      open_fold_hl_timeout = 400,
+      close_fold_kinds_for_ft = {
+        default = { 'imports', 'comment' },
+      },
+      enable_get_fold_virt_text = false,
+      preview = {
+        win_config = {
+          border = { '', '?', '', '', '', '?', '', '' },
+          winhighlight = 'Normal:Folded',
+          winblend = 0,
+        },
+      },
+    }
   end,
 }
