@@ -6,6 +6,7 @@ return {
     { '<Tab>', '<Cmd>BufferLineCycleNext<CR>', desc = 'Next tab' },
     { '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'Prev tab' },
     { '<leader>x', '<Cmd>bd<CR>', desc = 'Delete current buffer' },
+    { '<leader>X', '<Cmd>bd!<CR>', desc = 'Delete current buffer without saving' },
   },
   opts = {
     options = {
