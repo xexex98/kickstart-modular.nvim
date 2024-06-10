@@ -85,7 +85,7 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', function()
-        builtin.find_files { hidden = true, no_ignore = false, file_ignore_patterns = { '.git' } }
+        builtin.find_files { hidden = true, path_display = { 'truncate' }, no_ignore = false, file_ignore_patterns = { '.git' } }
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -119,6 +119,13 @@ return {
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
+      vim.keymap.set('n', '<leader>sP', function()
+        builtin.live_grep {
+          search_dirs = { '../' },
+          type_files = 'javascript',
+          prompt_title = 'Live Grep in Parent Directory',
+        }
+      end, { desc = '[S]earch [/] in Parent Directory' })
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
