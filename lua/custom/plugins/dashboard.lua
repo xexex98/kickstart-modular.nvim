@@ -2,6 +2,9 @@
 return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
+  init = function()
+    vim.keymap.set('n', '<leader>\\', '<cmd>Dashboard<cr>', { desc = '[D]ashboard' })
+  end,
   config = function()
     require('dashboard').setup {
       theme = 'hyper',
