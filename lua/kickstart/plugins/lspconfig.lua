@@ -182,7 +182,7 @@ return {
         },
 
         stylelint_lsp = {
-          filetypes = { 'css', 'scss', 'less' }, -- Add other filetypes if needed
+          filetypes = { 'css' }, -- Add other filetypes if needed
           settings = {
             stylelintplus = {
               autoFixOnSave = true,

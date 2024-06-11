@@ -30,6 +30,7 @@ return {
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
         ['<leader>l'] = { name = '[L]azy Git', _ = 'which_key_ignore' },
+        ['<leader>n'] = { name = '[N]oice', _ = 'which_key_ignore' },
       }
       -- visual mode
       require('which-key').register({

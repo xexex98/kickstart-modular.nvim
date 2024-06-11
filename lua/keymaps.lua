@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Move current line down
--- Should check terminal settings for correct key option for key option(Esc+)
+-- Should check terminal settings for correct key option for key option(ESC+)
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up', noremap = true, silent = true })
 -- Move current line up
 vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down', noremap = true, silent = true })
@@ -59,22 +59,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-local opts = { expr = true }
-
+-- Move wrapped lines to the next line
 vim.keymap.set('n', 'j', function()
   return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gj' or 'j'
-end, opts)
+end, { expr = true })
 
 vim.keymap.set('n', 'k', function()
   return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gk' or 'k'
-end, opts)
+end, { expr = true })
 
 vim.keymap.set('n', '<Up>', function()
   return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gk' or 'k'
-end, opts)
+end, { expr = true })
 
 vim.keymap.set('n', '<Down>', function()
   return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gj' or 'j'
-end, opts)
+end, { expr = true })
 
 -- vim: ts=2 sts=2 sw=2 et
