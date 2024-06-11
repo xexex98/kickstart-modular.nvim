@@ -1,6 +1,7 @@
 -- A git client for Neovim, with a focus on performance and usability.
 return {
   'kdheepak/lazygit.nvim',
+  event = 'VeryLazy',
   cmd = {
     'LazyGit',
     'LazyGitConfig',

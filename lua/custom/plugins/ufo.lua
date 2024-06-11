@@ -1,7 +1,8 @@
 return {
   'kevinhwang91/nvim-ufo',
+  event = 'VeryLazy',
   dependencies = { 'kevinhwang91/promise-async' },
-  init = function()
+  config = function()
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
     vim.o.foldcolumn = '1' -- '0' is not bad
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -9,8 +10,6 @@ return {
     vim.o.foldenable = true
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '[UFO]: Open all folds' })
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = '[UFO]: Close all folds' })
-  end,
-  config = function()
     local handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = (' 󰁂 %d '):format(endLnum - lnum)

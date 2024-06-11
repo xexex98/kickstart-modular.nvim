@@ -1,6 +1,7 @@
 -- A plugin to help you manage your projects.
 return {
   'ahmedkhalf/project.nvim',
+  event = 'VeryLazy',
   config = function()
     require('project_nvim').setup {
       scope_chdir = 'global',

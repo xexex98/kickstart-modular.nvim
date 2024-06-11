@@ -1,6 +1,7 @@
 -- A terminal emulator for Neovim.
 return {
   'akinsho/toggleterm.nvim',
+  event = 'VeryLazy',
   version = '*',
   opts = {
     autochdir = true,
