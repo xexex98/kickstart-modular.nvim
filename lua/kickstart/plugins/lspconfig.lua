@@ -181,16 +181,16 @@ return {
           },
         },
 
-        stylelint_lsp = {
-          filetypes = { 'css' }, -- Add other filetypes if needed
-          settings = {
-            stylelintplus = {
-              autoFixOnSave = true,
-              autoFixOnFormat = true,
-              configFile = '.stylelintrc', -- Adjust this to your Stylelint config file path
-            },
-          },
-        },
+        -- stylelint_lsp = {
+        --   filetypes = { 'css' }, -- Add other filetypes if needed
+        --   settings = {
+        --     stylelintplus = {
+        --       autoFixOnSave = true,
+        --       autoFixOnFormat = true,
+        --       configFile = '.stylelintrc', -- Adjust this to your Stylelint config file path
+        --     },
+        --   },
+        -- },
 
         lua_ls = {
           -- cmd = {...},

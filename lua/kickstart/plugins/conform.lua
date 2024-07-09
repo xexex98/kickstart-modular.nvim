@@ -39,6 +39,7 @@ return {
         javascriptreact = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
         json = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
       },
     },
   },
