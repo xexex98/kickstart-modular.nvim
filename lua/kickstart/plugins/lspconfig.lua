@@ -9,11 +9,11 @@ return {
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
-      { 'folke/neodev.nvim', opts = {} },
+      { 'folke/neodev.nvim',       opts = {} },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -147,12 +147,6 @@ return {
 
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      -- WARN: need learn make_client_capabilities
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
-
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -180,6 +174,7 @@ return {
             },
           },
         },
+        eslint = {},
         cssls = {},
         -- stylelint_lsp = {
         --   filetypes = { 'css' }, -- Add other filetypes if needed
@@ -220,10 +215,10 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-        'eslint_d', -- Used to lints
-        'prettierd', -- Used to format
-        'prettier', -- Used to format
+        'stylua',    -- Used to format Lua code
+        'eslint_d',  -- Used to lints
+        'prettierd', -- Used to format daemon
+        'prettier',  -- Used to format
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
