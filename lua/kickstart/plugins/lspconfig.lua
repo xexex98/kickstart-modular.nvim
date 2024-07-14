@@ -180,7 +180,7 @@ return {
             },
           },
         },
-
+        cssls = {},
         -- stylelint_lsp = {
         --   filetypes = { 'css' }, -- Add other filetypes if needed
         --   settings = {
@@ -221,6 +221,9 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'eslint_d', -- Used to lints
+        'prettierd', -- Used to format
+        'prettier', -- Used to format
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
