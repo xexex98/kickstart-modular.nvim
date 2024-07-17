@@ -14,7 +14,7 @@
 --  config = function() ... end
 
 return {
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -31,7 +31,7 @@ return {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>w', group = '[W]orkspace' },
-        { '<leader>h', group = 'Git [H]unk', mode = 'v' },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       }
     end,
   },
