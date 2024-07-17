@@ -218,7 +218,8 @@ return {
         'stylua',    -- Used to format Lua code
         'eslint_d',  -- Used to lints
         'prettierd', -- Used to format daemon
-        'prettier',  -- Used to format
+        'prettier',  -- Used to format,
+        'jsonlint',  -- Used to lint JSON,
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
