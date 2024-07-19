@@ -5,11 +5,10 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      -- Liso of lsp servers to use for linting
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         typescript = { 'eslint' },
-        -- css = { 'stylelint' },
-        -- html = { 'stylelint' },
         javascript = { 'eslint' },
         json = { 'jsonlint' },
         yaml = { 'yamllint' },

@@ -9,12 +9,12 @@ return {
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- lazydev.nvim is a plugin that properly configures
       -- LuaLS for editing your Neovim config by lazily
       -- updating your workspace libraries.
-      { 'folke/lazydev.nvim',      ft = 'lua',   opts = {} },
+      { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -216,11 +216,12 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',    -- Used to format Lua code
-        'eslint_d',  -- Used to lints
+        -- List of formatters and linters
+        'stylua', -- Used to format Lua code
+        'eslint_d', -- Used to lints
         'prettierd', -- Used to format daemon
-        'prettier',  -- Used to format,
-        'jsonlint',  -- Used to lint JSON,
+        'prettier', -- Used to format,
+        'jsonlint', -- Used to lint json
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
