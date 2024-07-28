@@ -1,7 +1,7 @@
 -- Formatting prettier etc.
 return {
   'stevearc/conform.nvim',
-  event = 'VeryLazy',
+  event = 'BufWritePre',
   cmd = { 'ConformInfo' },
   keys = {
     {
