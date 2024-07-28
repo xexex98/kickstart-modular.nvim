@@ -9,12 +9,22 @@ return {
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- lazydev.nvim is a plugin that properly configures
       -- LuaLS for editing your Neovim config by lazily
       -- updating your workspace libraries.
-      { 'folke/lazydev.nvim', ft = 'lua', opts = {} },
+      {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+          library = {
+            -- Load luvit types when the `vim.uv` word is found
+            { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+          },
+        },
+      },
+      { 'Bilal2453/luvit-meta', lazy = true },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -128,13 +138,13 @@ return {
             })
           end
 
-          -- The following autocommand is used to enable inlay hints in your
+          -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
           if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
             map('<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
         end,
@@ -217,11 +227,11 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         -- List of formatters and linters
-        'stylua', -- Used to format Lua code
-        'eslint_d', -- Used to lints
+        'stylua',    -- Used to format Lua code
+        'eslint_d',  -- Used to lints
         'prettierd', -- Used to format daemon
-        'prettier', -- Used to format,
-        'jsonlint', -- Used to lint json
+        'prettier',  -- Used to format,
+        'jsonlint',  -- Used to lint json
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
