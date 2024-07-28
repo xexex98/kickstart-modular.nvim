@@ -15,6 +15,7 @@ return {
   },
   opts = {
     notify_on_error = true,
+    notify_no_formatters = true,
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
@@ -23,16 +24,16 @@ return {
       -- You can use a sub-list to tell conform to
       -- run *until* a formatters is found.
       --
-      astro = { { 'prettierd', 'prettier' } },
-      javascript = { { 'prettierd', 'prettier' } },
-      typescript = { { 'prettierd', 'prettier' } },
-      css = { { 'prettierd', 'prettier' } },
-      scss = { { 'prettierd', 'prettier' } },
-      javascriptreact = { { 'prettierd', 'prettier' } },
-      typescriptreact = { { 'prettierd', 'prettier' } },
-      html = { { 'prettierd', 'prettier' } },
-      jsonc = { { 'prettierd', 'prettier' } },
-      json = { { 'prettierd', 'prettier' } },
+      astro = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      css = { "prettierd", "prettier", stop_after_first = true },
+      scss = { "prettierd", "prettier", stop_after_first = true },
+      javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+      html = { "prettierd", "prettier", stop_after_first = true },
+      jsonc = { "prettierd", "prettier", stop_after_first = true },
+      json = { "prettierd", "prettier", stop_after_first = true },
     },
   },
 }
