@@ -66,7 +66,7 @@ return {
           -- mappings = {
           --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
           -- },
-          path_display = { shorten = 5 },
+          path_display = { 'truncate' },
         },
         -- pickers = {}
         extensions = {
