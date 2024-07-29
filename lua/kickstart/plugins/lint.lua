@@ -8,8 +8,8 @@ return {
       -- Liso of lsp servers to use for linting
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        typescript = { 'eslint' },
-        javascript = { 'eslint' },
+        typescript = { 'eslint_d' },
+        javascript = { 'eslint_d' },
         json = { 'jsonlint' },
         yaml = { 'yamllint' },
       }

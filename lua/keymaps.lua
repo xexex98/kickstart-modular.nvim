@@ -5,6 +5,12 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Toggle wrap
+vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = '[T]oggle [W]rap' })
+
+-- Toggle relative number
+vim.keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = '[T]oggle [R]elative number' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -64,14 +70,6 @@ end, { expr = true })
 
 vim.keymap.set('n', 'k', function()
   return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gk' or 'k'
-end, { expr = true })
-
-vim.keymap.set('n', '<Up>', function()
-  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gk' or 'k'
-end, { expr = true })
-
-vim.keymap.set('n', '<Down>', function()
-  return vim.v.count == 0 and vim.fn.mode()[0] ~= 'n' and vim.fn.mode()[0] ~= 'o' and 'gj' or 'j'
 end, { expr = true })
 
 -- vim: ts=2 sts=2 sw=2 et

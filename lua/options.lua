@@ -9,6 +9,9 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
+-- Disable line wrapping
+vim.opt.wrap = false
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
