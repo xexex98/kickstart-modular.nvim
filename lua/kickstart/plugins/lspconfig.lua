@@ -9,7 +9,7 @@ return {
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- lazydev.nvim is a plugin that properly configures
       -- LuaLS for editing your Neovim config by lazily
@@ -183,16 +183,16 @@ return {
         },
         eslint = {},
         cssls = {},
-        -- stylelint_lsp = {
-        --   filetypes = { 'css' }, -- Add other filetypes if needed
-        --   settings = {
-        --     stylelintplus = {
-        --       autoFixOnSave = true,
-        --       autoFixOnFormat = true,
-        --       configFile = '.stylelintrc', -- Adjust this to your Stylelint config file path
-        --     },
-        --   },
-        -- },
+        stylelint_lsp = {
+          filetypes = { 'css' }, -- Add other filetypes if needed
+          settings = {
+            stylelintplus = {
+              autoFixOnSave = true,
+              autoFixOnFormat = true,
+              configFile = '.stylelintrc', -- Adjust this to your Stylelint config file path
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
@@ -223,11 +223,10 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         -- List of formatters and linters
-        'stylua',    -- Used to format Lua code
-        'eslint_d',  -- Used to lints
+        'stylua', -- Used to format Lua code
+        'eslint_d', -- Used to lints
         'prettierd', -- Used to format daemon
-        'prettier',  -- Used to format,
-        'jsonlint',  -- Used to lint json
+        'jsonlint', -- Used to lint json
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
