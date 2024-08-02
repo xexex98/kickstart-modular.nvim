@@ -7,7 +7,6 @@ return {
       local lint = require 'lint'
       -- List of lsp servers to use for linting
       lint.linters_by_ft = {
-        typescript = { 'eslint_d' },
         javascript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
         typescript = { 'eslint_d' },
