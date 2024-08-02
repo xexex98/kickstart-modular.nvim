@@ -28,7 +28,7 @@ vim.opt.showmode = false
 -- Schedule the setting after 'UiEnter' because it can increase startup-time.
 --  Remove this option if you want your kOS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.shedule(function()
+vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 -- Enable break indent
