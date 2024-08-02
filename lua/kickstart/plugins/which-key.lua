@@ -24,14 +24,13 @@ return {
       require('which-key').add {
         { '<leader>c', group = '[C]ode' },
         { '<leader>d', group = '[D]ocument' },
-        { '<leader>h', group = 'Git [H]unk' },
-        { '<leader>l', group = '[L]azy Git' },
-        { '<leader>n', group = '[N]oice' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
-        { '<leader>t', group = '[T]oggle' },
         { '<leader>w', group = '[W]orkspace' },
+        { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>n', group = '[N]oice' },
+        { '<leader>l', group = '[L]azy Git' },
       }
     end,
   },
