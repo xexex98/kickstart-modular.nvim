@@ -5,12 +5,16 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      -- Liso of lsp servers to use for linting
+      -- List of lsp servers to use for linting
       lint.linters_by_ft = {
         typescript = { 'eslint_d' },
         javascript = { 'eslint_d' },
+        javascriptreact = { 'eslint_d' },
+        typescript = { 'eslint_d' },
+        typescriptreact = { 'eslint_d' },
         json = { 'jsonlint' },
       }
+
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
