@@ -25,10 +25,12 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
+-- Schedule the setting after 'UiEnter' because it can increase startup-time.
+--  Remove this option if you want your kOS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.opt.clipboard = 'unnamedplus'
-
+vim.shedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
 -- Enable break indent
 vim.opt.breakindent = true
 
