@@ -13,7 +13,6 @@ return {
           enable = true,
         },
         shortcut = {
-          { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
           {
             icon = ' ',
             icon_hl = '@variable',

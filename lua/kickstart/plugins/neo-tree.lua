@@ -49,7 +49,7 @@ return {
     }
   end,
   keys = {
-    { '\\', ':NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
+    { '\\', ':NvimTreeToggle<CR>', desc = 'Toggle NvimTree', silent = true },
   },
 }
 -- return {
