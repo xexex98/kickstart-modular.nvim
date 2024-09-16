@@ -2,6 +2,11 @@
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
+  keys = {
+    { '<leader>nl', '<cmd>Noice<cr>', desc = '[N]oice [L]ast' },
+    { '<leader>nh', '<cmd>Noice history<cr>', desc = '[N]oice [H]istory' },
+    { '<leader>nt', '<cmd>Noice telescope<cr>', desc = '[N]oice [T]elescope' },
+  },
   opts = {
     routes = {
       view = 'mini',
@@ -34,10 +39,5 @@ return {
     -- OPTIONAL: `nvim-notify` is only needed, if you want to use the notification view.
     --   If not available, we use `mini` as the fallback
     -- { 'rcarriga/nvim-notify', opts = { timeout = 3000 } },
-  },
-  keys = {
-    { '<leader>nl', '<cmd>Noice<cr>', desc = '[N]oice [L]ast' },
-    { '<leader>nh', '<cmd>Noice history<cr>', desc = '[N]oice [H]istory' },
-    { '<leader>nt', '<cmd>Noice telescope<cr>', desc = '[N]oice [T]elescope' },
   },
 }
