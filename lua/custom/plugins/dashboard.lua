@@ -2,6 +2,7 @@
 return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
+  enabled = false,
   init = function()
     vim.keymap.set('n', '<leader>\\', '<cmd>Dashboard<cr>', { desc = '[D]ashboard' })
   end,

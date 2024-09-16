@@ -2,12 +2,13 @@
 return {
   'akinsho/bufferline.nvim',
   lazy = false,
+  enabled = false,
   -- stylua: ignore
   keys = {
     { '<Tab>',      '<Cmd>BufferLineCycleNext<CR>', desc = 'Next tab' },
     { '<S-Tab>',    '<Cmd>BufferLineCyclePrev<CR>', desc = 'Prev tab' },
     { '<Esc><Esc>', '<Cmd>bd<CR>',                  desc = 'Delete current buffer' },
-    { '<leader>X',    '<Cmd>bd!<CR>',                 desc = 'Delete current buffer without saving' },
+    { '<leader>X',  '<Cmd>bd!<CR>',                 desc = 'Delete current buffer without saving' },
   },
   opts = {
     options = {
