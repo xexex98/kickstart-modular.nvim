@@ -29,12 +29,6 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-
-      -- Useful for opening files in a new tab
-      {
-        'nvim-telescope/telescope-file-browser.nvim',
-        dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-      },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -79,7 +73,6 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-      pcall(require('telescope').load_extension, 'file_browser')
       pcall(require('telescope').load_extension, 'projects')
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -106,14 +99,6 @@ return {
       vim.keymap.set('n', '<leader><leader>', function()
         builtin.buffers { sort_mru = true, ignore_current_buffer = true }
       end, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<leader>sb', function()
-        require('telescope').extensions.file_browser.file_browser {
-          hidden = true,
-          previewer = false,
-          grouped = true,
-          initial_mode = 'normal',
-        }
-      end, { desc = '[S]earch File [B]rowser' })
       vim.keymap.set('n', '<leader>sp', function()
         require('telescope').extensions.projects.projects()
       end, { desc = '[S]earch [P]rojects' })
