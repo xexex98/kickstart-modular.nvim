@@ -208,6 +208,7 @@ return {
             },
           },
         },
+        jsonls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -222,7 +223,7 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        -- List of formatters and linters
+        -- Always install these formatters and linters
         'stylua', -- Used to format Lua code
         'eslint_d', -- Used to lints
         'prettierd', -- Used to format daemon
