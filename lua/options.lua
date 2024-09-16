@@ -9,6 +9,11 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
+-- Add spelling for Russian and English
+vim.opt.spelllang = 'en,ru'
+-- Enable spell checking
+vim.opt.spell = true
+
 -- Disable line wrapping
 vim.opt.wrap = false
 

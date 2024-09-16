@@ -95,10 +95,6 @@ vim.g.have_nerd_font = true
 
 -- Set language to English
 vim.cmd [[language en_US.UTF-8]]
--- Add spelling for Russian and English
-vim.opt.spelllang = 'en,ru'
--- Enable spell checking
-vim.opt.spell = true
 
 -- [[ Setting options ]]
 require 'options'

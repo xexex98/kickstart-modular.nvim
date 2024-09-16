@@ -5,11 +5,20 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Exit insert mode
+vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
+
+-- Delete current buffer
+vim.keymap.set('n', 'Q', '<cmd>bd<CR>', { desc = 'Delete current buffer' })
+
 -- Toggle wrap
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = '[T]oggle [W]rap' })
 
 -- Toggle relative number
 vim.keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = '[T]oggle [R]elative number' })
+
+-- Toggle spell checking
+vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = '[T]oggle [S]pell checking' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
