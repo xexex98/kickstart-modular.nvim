@@ -28,7 +28,7 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
 
       -- Useful for opening files in a new tab
       {
@@ -91,7 +91,7 @@ return {
         builtin.find_files { hidden = true, no_ignore = false, file_ignore_patterns = { '.git' } }
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sF', function()
-        builtin.find_files { hidden = true, no_ignore = false, file_ignore_patterns = { '.git' }, cwd = "../" }
+        builtin.find_files { hidden = true, no_ignore = false, file_ignore_patterns = { '.git' }, cwd = '../' }
       end, { desc = '[S]earch [F]iles in parent directory' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -103,7 +103,9 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader><leader>', function()
+        builtin.buffers { sort_mru = true, ignore_current_buffer = true }
+      end, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>sb', function()
         require('telescope').extensions.file_browser.file_browser {
           hidden = true,
