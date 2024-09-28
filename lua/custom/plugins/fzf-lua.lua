@@ -1,4 +1,6 @@
 -- fzf-lua ultrafast fuzzy finder
+-- https://github.com/ibhagwan/fzf-lua
+
 return {
   'ibhagwan/fzf-lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -66,3 +68,5 @@ return {
 --   vim.keymap.set('n', '<leader>sp', function()
 --     require('telescope').extensions.projects.projects()
 --   end, { desc = '[S]earch [P]rojects' })
+
+-- vim: ts=2 sts=2 sw=2 et

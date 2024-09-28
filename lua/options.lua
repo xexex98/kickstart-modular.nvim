@@ -15,7 +15,7 @@ vim.opt.spelllang = 'en,ru'
 vim.opt.spell = true
 
 -- Disable line wrapping
-vim.opt.wrap = false
+vim.opt.wrap = true 
 
 -- Make line numbers default
 vim.opt.number = true
