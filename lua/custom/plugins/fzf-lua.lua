@@ -10,7 +10,45 @@ return {
 
     config.defaults.actions.files['ctrl-t'] = require('trouble.sources.fzf').actions.open
 
-    fzf.setup { fzf_opts = { ['--layout'] = 'reverse-list' } }
+    fzf.setup {
+      fzf_opts = { ['--layout'] = 'reverse-list' },
+      keymap = {
+        fzf = {
+          ['tab'] = 'down',
+          ['shift-tab'] = 'up',
+          ['ctrl-z'] = 'abort',
+          ['ctrl-u'] = 'unix-line-discard',
+          ['ctrl-f'] = 'half-page-down',
+          ['ctrl-b'] = 'half-page-up',
+          ['ctrl-a'] = 'beginning-of-line',
+          ['ctrl-e'] = 'end-of-line',
+          ['alt-a'] = 'toggle-all',
+          ['alt-g'] = 'last',
+          ['alt-G'] = 'first',
+          -- Only valid with fzf previewers (bat/cat/git/etc)
+          ['f3'] = 'toggle-preview-wrap',
+          ['f4'] = 'toggle-preview',
+          ['shift-down'] = 'preview-page-down',
+          ['shift-up'] = 'preview-page-up',
+          ['alt-shift-down'] = 'preview-down',
+          ['alt-shift-up'] = 'preview-up',
+        },
+        builtin = {
+          ['<M-Esc>'] = 'hide',
+          ['<F1>'] = 'toggle-help',
+          ['<F2>'] = 'toggle-fullscreen',
+          -- Only valid with the 'builtin' previewer
+          ['<F3>'] = 'toggle-preview-wrap',
+          ['<F4>'] = 'toggle-preview',
+          ['<F5>'] = 'toggle-preview-ccw',
+          ['<F6>'] = 'toggle-preview-cw',
+          ['<C-d>'] = 'preview-page-down',
+          ['<C-u>'] = 'preview-page-up',
+          ['<M-S-down>'] = 'preview-down',
+          ['<M-S-up>'] = 'preview-up',
+        },
+      },
+    }
 
     vim.keymap.set('n', '<leader>sf', function()
       fzf.files { fd_opts = [[--color=never --type f --hidden --follow --exclude .git]] }
@@ -63,10 +101,16 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       fzf.files { cwd = vim.fn.stdpath 'config', winopts = { title = 'Neovim config files' } }
     end, { desc = '[S]earch [N]eovim files', noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>sp', function()
+      fzf.fzf_exec("fd '.git$' --hidden --prune -utd ~/yandex  | xargs dirname", {
+        actions = {
+          ['default'] = function(selected, _)
+            fzf.git_files { cwd = selected[1] }
+          end,
+        },
+      })
+    end, { desc = '[S]earch [P]rojects', noremap = true, silent = true })
   end,
 }
---   vim.keymap.set('n', '<leader>sp', function()
---     require('telescope').extensions.projects.projects()
---   end, { desc = '[S]earch [P]rojects' })
 
 -- vim: ts=2 sts=2 sw=2 et
