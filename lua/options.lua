@@ -10,7 +10,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 
 -- Add spelling for Russian and English
-vim.opt.spelllang = 'en,ru'
+vim.opt.spelllang = 'en'
 -- Enable spell checking
 vim.opt.spell = true
 

@@ -10,6 +10,7 @@ return {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     branch = '0.1.x',
+    enabled = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -99,7 +100,7 @@ return {
       -- vim.keymap.set('n', '<leader><leader>', function()
       --   builtin.buffers { sort_mru = true, ignore_current_buffer = true }
       -- end, { desc = '[ ] Find existing buffers' })
-      -- vim.keymap.set('n', '<leader>sp', function()
+      -- vim.keymap.set('n', '<leader>sp', functuon()
       --   require('telescope').extensions.projects.projects()
       -- end, { desc = '[S]earch [P]rojects' })
       --

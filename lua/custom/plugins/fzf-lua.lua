@@ -1,6 +1,6 @@
 -- fzf-lua ultrafast fuzzy finder
 -- https://github.com/ibhagwan/fzf-lua
-
+--
 return {
   'ibhagwan/fzf-lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -11,6 +11,14 @@ return {
     config.defaults.actions.files['ctrl-t'] = require('trouble.sources.fzf').actions.open
 
     fzf.setup {
+      defaults = {
+        git_icons = false,
+        color_icons = false,
+        file_icons = false,
+      },
+      winopts = {
+        fullscreen = true,
+      },
       fzf_opts = { ['--layout'] = 'reverse-list' },
       keymap = {
         fzf = {
@@ -54,7 +62,7 @@ return {
       fzf.files { fd_opts = [[--color=never --type f --hidden --follow --exclude .git]] }
     end, { desc = '[S]earch [f]iles', noremap = true, silent = true })
 
-    vim.keymap.set('n', '<leader>sP', function()
+    vim.keymap.set('n', '<leader>sF', function()
       fzf.files { cwd = vim.fn.fnamemodify(vim.uv.cwd(), ':h'), winopts = { title = 'Search files in parent directory' } }
     end, { desc = '[S]earch files in [P]arent directory', noremap = true, silent = true })
 
@@ -102,14 +110,15 @@ return {
       fzf.files { cwd = vim.fn.stdpath 'config', winopts = { title = 'Neovim config files' } }
     end, { desc = '[S]earch [N]eovim files', noremap = true, silent = true })
     vim.keymap.set('n', '<leader>sp', function()
-      fzf.fzf_exec("fd '.git$' --hidden --prune -utd ~/yandex  | xargs dirname", {
+      fzf.fzf_exec('fd --type d . ~/idp-vs ~/idp-vs/ui ~/ird-ui --max-depth 1', {
         actions = {
           ['default'] = function(selected, _)
-            fzf.git_files { cwd = selected[1] }
+            vim.cmd('cd ' .. selected[1])
+            fzf.files()
           end,
         },
       })
-    end, { desc = '[S]earch [P]rojects', noremap = true, silent = true })
+    end, { desc = '[S]earch [P]roject files', noremap = true, silent = true })
   end,
 }
 
