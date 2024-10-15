@@ -1,6 +1,3 @@
--- fzf-lua ultrafast fuzzy finder
--- https://github.com/ibhagwan/fzf-lua
---
 return {
   'ibhagwan/fzf-lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -19,28 +16,8 @@ return {
       winopts = {
         fullscreen = true,
       },
-      fzf_opts = { ['--layout'] = 'reverse-list' },
+      fzf_opts = { ['--layout'] = 'reverse-list', ['--history'] = vim.fn.stdpath 'data' .. '/fzf-history' },
       keymap = {
-        fzf = {
-          ['tab'] = 'down',
-          ['shift-tab'] = 'up',
-          ['ctrl-z'] = 'abort',
-          ['ctrl-u'] = 'unix-line-discard',
-          ['ctrl-f'] = 'half-page-down',
-          ['ctrl-b'] = 'half-page-up',
-          ['ctrl-a'] = 'beginning-of-line',
-          ['ctrl-e'] = 'end-of-line',
-          ['alt-a'] = 'toggle-all',
-          ['alt-g'] = 'last',
-          ['alt-G'] = 'first',
-          -- Only valid with fzf previewers (bat/cat/git/etc)
-          ['f3'] = 'toggle-preview-wrap',
-          ['f4'] = 'toggle-preview',
-          ['shift-down'] = 'preview-page-down',
-          ['shift-up'] = 'preview-page-up',
-          ['alt-shift-down'] = 'preview-down',
-          ['alt-shift-up'] = 'preview-up',
-        },
         builtin = {
           ['<M-Esc>'] = 'hide',
           ['<F1>'] = 'toggle-help',
@@ -80,14 +57,14 @@ return {
     end, { desc = '[S]earch current [W]ord', noremap = true, silent = true })
 
     vim.keymap.set('n', '<leader>sg', function()
-      fzf.live_grep {
+      fzf.live_grep_glob {
         path_shorten = true,
         winopts = { title = 'Live Grep in Current Directory ' },
       }
     end, { desc = '[S]earch live [G]rep', noremap = true, silent = true })
 
     vim.keymap.set('n', '<leader>sG', function()
-      fzf.live_grep { cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ':h'), winopts = { title = 'Live Grep in Parent Directory' } }
+      fzf.live_grep_glob { cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ':h'), winopts = { title = 'Live Grep in Parent Directory' } }
     end, { desc = '[S]earch by [G]rep in Parent Directory', noremap = true, silent = true })
 
     vim.keymap.set('n', '<leader>sd', function()
