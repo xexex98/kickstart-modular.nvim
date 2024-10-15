@@ -20,20 +20,15 @@ vim.keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = '[T]o
 -- Toggle spell checking
 vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = '[T]oggle [S]pell checking' })
 
+vim.keymap.set('n', '<leader>m', '<cmd>messages<cr>', { desc = '[M]essages' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Move current line down
--- Should check terminal settings for correct key option for key option(ESC+)
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { desc = 'Move line up', noremap = true, silent = true })
--- Move current line up
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { desc = 'Move line down', noremap = true, silent = true })
-
--- Move selected lines down
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', noremap = true, silent = true })
--- Move selected lines up
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', noremap = true, silent = true })
+-- Move selected lines up and down
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', noremap = true, silent = true })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', noremap = true, silent = true })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
