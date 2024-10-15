@@ -1,4 +1,3 @@
--- Formatting prettier etc.
 return {
   'stevearc/conform.nvim',
   event = 'BufWritePre',
@@ -18,12 +17,6 @@ return {
     notify_no_formatters = true,
     formatters_by_ft = {
       lua = { 'stylua' },
-      -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
-      --
-      -- You can use a sub-list to tell conform to
-      -- run *until* a formatters is found.
-      --
       astro = { 'prettierd' },
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },
@@ -37,4 +30,5 @@ return {
     },
   },
 }
+
 -- vim: ts=2 sts=2 sw=2 et
