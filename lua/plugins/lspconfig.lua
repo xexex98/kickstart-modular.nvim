@@ -80,6 +80,7 @@ return {
             },
           },
         },
+        astro = {},
         eslint = {},
         cssls = {},
         stylelint_lsp = {

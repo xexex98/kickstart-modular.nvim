@@ -1,10 +1,8 @@
--- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists to help you solve all the trouble your code is causing.
 return {
   'folke/trouble.nvim',
   event = 'VeryLazy',
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {},
   cmd = 'Trouble',
-  -- stylua: ignore
   keys = {
     {
       '<leader>xt',
@@ -38,3 +36,5 @@ return {
     },
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et

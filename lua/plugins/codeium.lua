@@ -1,4 +1,3 @@
--- Code write helper like Copilot.
 return {
   'Exafunction/codeium.vim',
   event = 'BufEnter',
@@ -8,3 +7,5 @@ return {
     end, { expr = true, silent = true })
   end,
 }
+
+-- vim: ts=2 sts=2 sw=2 et
