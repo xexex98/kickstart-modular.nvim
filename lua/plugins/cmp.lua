@@ -1,4 +1,3 @@
---NOTE: update config
 return {
   {
     'hrsh7th/nvim-cmp',

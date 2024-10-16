@@ -7,9 +7,6 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 -- Add spelling for Russian and English
 vim.opt.spelllang = 'en,ru'
 -- Enable spell checking

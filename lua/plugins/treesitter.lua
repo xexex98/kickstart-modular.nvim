@@ -1,4 +1,3 @@
---NOTE: update config
 return {
   {
     'nvim-treesitter/nvim-treesitter',
